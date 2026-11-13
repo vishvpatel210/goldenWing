@@ -1,26 +1,43 @@
-/**
- * Below are the colors that are used in the app. The colors are defined in the light and dark mode.
- * There are many other ways to style your app. For example, [Nativewind](https://www.nativewind.dev/), [Tamagui](https://tamagui.dev/), [unistyles](https://reactnativeunistyles.vercel.app), etc.
- */
-
 import '@/global.css';
-
 import { Platform } from 'react-native';
+
+export const GoldenWingTheme = {
+  colors: {
+    background: '#080808',
+    card: '#171717',
+    cardElevated: '#1F1F1F',
+    primaryGold: '#D4AF37',
+    lightGold: '#F5D77A',
+    darkGold: '#8C7322',
+    textPrimary: '#FFFFFF',
+    textSecondary: '#A0A0A0',
+    border: '#2A2A2A',
+    borderGold: 'rgba(212, 175, 55, 0.3)',
+    success: '#2ECC71',
+    danger: '#E74C3C',
+    warning: '#F39C12',
+    seatAvailable: '#252525',
+    seatSelected: '#D4AF37',
+    seatOccupied: '#3A3A3A',
+  },
+} as const;
 
 export const Colors = {
   light: {
-    text: '#000000',
-    background: '#ffffff',
-    backgroundElement: '#F0F0F3',
-    backgroundSelected: '#E0E1E6',
-    textSecondary: '#60646C',
+    text: GoldenWingTheme.colors.textPrimary,
+    background: GoldenWingTheme.colors.background,
+    backgroundElement: GoldenWingTheme.colors.card,
+    backgroundSelected: GoldenWingTheme.colors.cardElevated,
+    textSecondary: GoldenWingTheme.colors.textSecondary,
+    tint: GoldenWingTheme.colors.primaryGold,
   },
   dark: {
-    text: '#ffffff',
-    background: '#000000',
-    backgroundElement: '#212225',
-    backgroundSelected: '#2E3135',
-    textSecondary: '#B0B4BA',
+    text: GoldenWingTheme.colors.textPrimary,
+    background: GoldenWingTheme.colors.background,
+    backgroundElement: GoldenWingTheme.colors.card,
+    backgroundSelected: GoldenWingTheme.colors.cardElevated,
+    textSecondary: GoldenWingTheme.colors.textSecondary,
+    tint: GoldenWingTheme.colors.primaryGold,
   },
 } as const;
 
@@ -28,13 +45,9 @@ export type ThemeColor = keyof typeof Colors.light & keyof typeof Colors.dark;
 
 export const Fonts = Platform.select({
   ios: {
-    /** iOS `UIFontDescriptorSystemDesignDefault` */
     sans: 'system-ui',
-    /** iOS `UIFontDescriptorSystemDesignSerif` */
     serif: 'ui-serif',
-    /** iOS `UIFontDescriptorSystemDesignRounded` */
     rounded: 'ui-rounded',
-    /** iOS `UIFontDescriptorSystemDesignMonospaced` */
     mono: 'ui-monospace',
   },
   default: {
@@ -58,8 +71,9 @@ export const Spacing = {
   three: 16,
   four: 24,
   five: 32,
-  six: 64,
-} as const;
+  six: 48,
+};
 
-export const BottomTabInset = Platform.select({ ios: 50, android: 80 }) ?? 0;
 export const MaxContentWidth = 800;
+export const BottomTabInset = 70;
+

@@ -7,3 +7,19 @@
   --font-rounded: 'SF Pro Rounded', 'Hiragino Maru Gothic ProN', Meiryo, 'MS PGothic', sans-serif;
   --font-serif: Georgia, 'Times New Roman', serif;
 }
+
+/* Remove default browser focus outline on web inputs */
+input, textarea {
+  outline: none !important;
+}
+
+/* Fix autofill / autocomplete background and text styling on Chrome/Safari/Edge */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px #171717 inset !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  caret-color: #FFFFFF !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
